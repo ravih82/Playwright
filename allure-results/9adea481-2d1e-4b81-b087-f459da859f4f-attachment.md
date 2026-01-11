@@ -1,0 +1,406 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e5]:
+    - link "eTicket Login" [ref=e6] [cursor=pointer]:
+      - /url: /oprs-web/login/show.do
+    - link "ATB/OPR Login" [ref=e7] [cursor=pointer]:
+      - /url: https://agents.apsrtconline.in
+    - generic [ref=e8]:
+      - generic [ref=e9]: (24/7 Customer Support)
+      - text: 0866 2570005/149
+  - generic [ref=e11]:
+    - link "Home" [ref=e12] [cursor=pointer]:
+      - /url: /oprs-web/guest/home.do?h=1
+    - link "Ticket Status" [ref=e13] [cursor=pointer]:
+      - /url: /oprs-web/ticket/waitlist.do
+    - link "Cancel Ticket" [ref=e14] [cursor=pointer]:
+      - /url: /oprs-web/guest/ticket/cancel.do
+    - link "Track Service" [ref=e15] [cursor=pointer]:
+      - /url: /oprs-web/services/cancel.do
+    - link "Gallery" [ref=e16] [cursor=pointer]:
+      - /url: /oprs-web/services/coaches.do
+    - link "Wallet" [ref=e17] [cursor=pointer]:
+      - /url: /oprs-web/wallet/traxnHistory.do
+    - link "TimeTable / Track" [ref=e18] [cursor=pointer]:
+      - /url: /oprs-web/services/timeTable.do
+    - link "Grievance" [ref=e19] [cursor=pointer]:
+      - /url: /oprs-web/cust/wftfeedback.do
+    - link "Logistics" [ref=e20] [cursor=pointer]:
+      - /url: https://cargo.apsrtconline.in/login
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - heading "Search for bus tickets!" [level=1] [ref=e28]
+          - status [ref=e29]: 3 results are available, use up and down arrow keys to navigate.
+          - textbox "Enter bording place name or city and select place from the dropdown list." [ref=e30]: KURNOOL
+          - status [ref=e31]: 2 results are available, use up and down arrow keys to navigate.
+          - textbox "Enter alighting place name or city and select place from the dropdown list." [ref=e32]: BANGALORE
+          - textbox [active] [ref=e33]: 15/1/2026
+          - textbox [ref=e34]: For Roundtrip
+          - button "Check Availability" [ref=e35] [cursor=pointer]
+        - generic [ref=e39]:
+          - generic [ref=e40] [cursor=pointer]: •
+          - generic [ref=e41] [cursor=pointer]: •
+          - generic [ref=e42] [cursor=pointer]: •
+          - generic [ref=e43] [cursor=pointer]: •
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - heading "Popular Routes" [level=2] [ref=e47]
+          - list [ref=e48]:
+            - listitem [ref=e49]:
+              - link "HYDERABAD - VIJAYAWADA" [ref=e50] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e51]:
+              - link "HYDERABAD - Visakhapatnam" [ref=e52] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e53]:
+              - link "Tirupati - Chennai" [ref=e54] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e55]:
+              - link "HYDERABAD - Tirupati" [ref=e56] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e57]:
+              - link "BENGALURU - Tirupati" [ref=e58] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e59]:
+              - link "HYDERABAD - Nellore" [ref=e60] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e61]:
+              - link "HYDERABAD - Ongole" [ref=e62] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e63]:
+              - link "VIJAYAWADA - Tirupati" [ref=e64] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e65]:
+              - link "VIJAYAWADA - HYDERABAD" [ref=e66] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e67]:
+              - link "VIJAYAWADA - BENGALURU" [ref=e68] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e69]:
+              - link "Vishakapatnam - HYDERABAD" [ref=e70] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e71]:
+              - link "Nellore - BENGALURU" [ref=e72] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e73]:
+              - link "Chennai - Tirupati" [ref=e74] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e75]:
+              - link "BENGALURU - VIJAYAWADA" [ref=e76] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e77]:
+              - link "Tirupati - HYDERABAD" [ref=e78] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e79]:
+              - link "Tirupati - BENGALURU" [ref=e80] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e81]:
+              - link "VIJAYAWADA - Vishakapatnam" [ref=e82] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e83]:
+              - link "Vishakapatnam - VIJAYAWADA" [ref=e84] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e85]:
+              - link "Vishakapatnam - Kakinada" [ref=e86] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e87]:
+              - link "Vishakapatnam - Srikakulam" [ref=e88] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e89]:
+              - link "Vishakapatnam - Rajamahendravaram" [ref=e90] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e94]:
+          - generic [ref=e95] [cursor=pointer]: •
+          - generic [ref=e96] [cursor=pointer]: •
+        - generic [ref=e97]:
+          - heading "News & Updates" [level=2] [ref=e98]
+          - generic [ref=e101]:
+            - generic [ref=e102]: Book Round Trip Tickets
+            - generic [ref=e103]: Get 10% Discount on all services
+            - generic [ref=e104]: "Awards-2019 - APSRTC bagged various awards:"
+            - generic [ref=e105]: 1. Smart City Empowering India Awards - 2019 for Best Smart Mobility Project.
+            - generic [ref=e106]: 2. National Public Transport Excellence Awards 2019 for Digital Initiatives.
+            - generic [ref=e107]: 3. APSRTC bagged two National awards from 2019 ASRTU for effective operation of buses. 4. APSRTC bags 3 India bus awards for good Performance in different Categories.
+            - generic [ref=e108]: 60 DAYS BOOKING
+            - generic [ref=e109]: Now you can book tickets for 60 days in advance.
+            - generic [ref=e110]: IMPROVISED ONLINE BOOKING
+            - generic [ref=e111]: 1. Revamped Online booking page.
+            - generic [ref=e112]: 2. Login is not mandatory, you can book now as Guest user!
+            - generic [ref=e113]: 3. More options available for choosing service(by Bus Type, sort by departure time and fare).
+            - generic [ref=e114]: Awards 2018
+            - generic [ref=e115]: APSRTC received three Bus India awards at Kaula Lumpur in the following categories 1. Best employee welfare initiatives in APSRTC 2. Best marketing initiatives 3. Best passenger friendly Mobile App
+            - generic [ref=e116]: Awards
+            - generic [ref=e118]: Winner for achieving highest KMPL in fuel efficiency for Mofussil services 2012-13.
+            - generic [ref=e120]: Winner for achieving highest KMPL in fuel efficiency by Vijayawada - Urban services 2012-13.
+            - generic [ref=e122]: Winner for achieving the best Road Safety record Mofussil Services for the year 2012-13.
+            - generic [ref=e124]: Winner for achieving the maximum improvement in vehicle productivity for Mofussil services for the year 2012-13.
+      - generic [ref=e125]:
+        - generic [ref=e126]: “
+        - generic [ref=e127]:
+          - paragraph [ref=e128]: This is a game-changer! APSRTC has made commuting so much easier by allowing UPI payments for tickets. It’s fast, convenient, and I don’t have to worry about carrying change anymore. Kudos to APSRTC for embracing technology!
+          - generic [ref=e129]:
+            - text: Saran
+            - text: Software Engineer
+        - generic [ref=e130]: ”
+      - generic [ref=e132]:
+        - heading "Click the below to get download the APSRTC mobile App" [level=4] [ref=e133]
+        - generic [ref=e135]:
+          - link "Android Mobile App" [ref=e137] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e139]
+            - paragraph [ref=e141]: Android Mobile App
+          - link "iOS Mobile App" [ref=e143] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e145]
+            - paragraph [ref=e147]: iOS Mobile App
+          - generic [ref=e148]:
+            - img [ref=e150]
+            - paragraph [ref=e152]: Scan the QR to download the App
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - link "FAQs" [ref=e156] [cursor=pointer]:
+          - /url: /oprs-web/home/faq.do
+        - text: "|"
+        - link "Privacy Policy" [ref=e157] [cursor=pointer]:
+          - /url: /oprs-web/home/privacy.do
+        - text: "|"
+        - link "Terms & Conditions" [ref=e158] [cursor=pointer]:
+          - /url: /oprs-web/home/terms.do
+        - text: "|"
+        - link "Contact Us" [ref=e159] [cursor=pointer]:
+          - /url: /oprs-web/home/contactus.do
+        - text: "|"
+        - link "About Us" [ref=e160] [cursor=pointer]:
+          - /url: /oprs-web/home/aboutus.do
+        - text: "Version v5.4.4 | Copyright © 2011 apsrtconline.in, All rights reserved. Date : 24-06-2025 21:42"
+      - generic [ref=e161]:
+        - generic [ref=e162] [cursor=pointer]: "Follow us on:"
+        - generic "APSRTC on Facebook" [ref=e163] [cursor=pointer]
+        - generic "APSRTC on Twitter" [ref=e164] [cursor=pointer]
+      - generic "Powered by AbhiBus." [ref=e166]
+  - generic [ref=e167]:
+    - generic [ref=e168]:
+      - generic [ref=e169]:
+        - generic "Prev" [ref=e170]:
+          - generic [ref=e171]: Prev
+        - generic [ref=e172]: January 2026
+      - table [ref=e173]:
+        - rowgroup [ref=e174]:
+          - row "Su Mo Tu We Th Fr Sa" [ref=e175]:
+            - columnheader "Su" [ref=e176]
+            - columnheader "Mo" [ref=e177]
+            - columnheader "Tu" [ref=e178]
+            - columnheader "We" [ref=e179]
+            - columnheader "Th" [ref=e180]
+            - columnheader "Fr" [ref=e181]
+            - columnheader "Sa" [ref=e182]
+        - rowgroup [ref=e183]:
+          - row "1 2 3" [ref=e184]:
+            - cell [ref=e185]
+            - cell [ref=e186]
+            - cell [ref=e187]
+            - cell [ref=e188]
+            - cell "1" [ref=e189]:
+              - generic [ref=e190]: "1"
+            - cell "2" [ref=e191]:
+              - generic [ref=e192]: "2"
+            - cell "3" [ref=e193]:
+              - generic [ref=e194]: "3"
+          - row "4 5 6 7 8 9 10" [ref=e195]:
+            - cell "4" [ref=e196]:
+              - generic [ref=e197]: "4"
+            - cell "5" [ref=e198]:
+              - generic [ref=e199]: "5"
+            - cell "6" [ref=e200]:
+              - generic [ref=e201]: "6"
+            - cell "7" [ref=e202]:
+              - generic [ref=e203]: "7"
+            - cell "8" [ref=e204]:
+              - generic [ref=e205]: "8"
+            - cell "9" [ref=e206]:
+              - generic [ref=e207]: "9"
+            - cell "10" [ref=e208]:
+              - generic [ref=e209]: "10"
+          - row "11 12 13 14 15 16 17" [ref=e210]:
+            - cell "11" [ref=e211]:
+              - link "11" [ref=e212] [cursor=pointer]:
+                - /url: "#"
+            - cell "12" [ref=e213]:
+              - link "12" [ref=e214] [cursor=pointer]:
+                - /url: "#"
+            - cell "13" [ref=e215]:
+              - link "13" [ref=e216] [cursor=pointer]:
+                - /url: "#"
+            - cell "14" [ref=e217]:
+              - link "14" [ref=e218] [cursor=pointer]:
+                - /url: "#"
+            - cell "15" [ref=e219]:
+              - link "15" [ref=e220] [cursor=pointer]:
+                - /url: "#"
+            - cell "16" [ref=e221]:
+              - link "16" [ref=e222] [cursor=pointer]:
+                - /url: "#"
+            - cell "17" [ref=e223]:
+              - link "17" [ref=e224] [cursor=pointer]:
+                - /url: "#"
+          - row "18 19 20 21 22 23 24" [ref=e225]:
+            - cell "18" [ref=e226]:
+              - link "18" [ref=e227] [cursor=pointer]:
+                - /url: "#"
+            - cell "19" [ref=e228]:
+              - link "19" [ref=e229] [cursor=pointer]:
+                - /url: "#"
+            - cell "20" [ref=e230]:
+              - link "20" [ref=e231] [cursor=pointer]:
+                - /url: "#"
+            - cell "21" [ref=e232]:
+              - link "21" [ref=e233] [cursor=pointer]:
+                - /url: "#"
+            - cell "22" [ref=e234]:
+              - link "22" [ref=e235] [cursor=pointer]:
+                - /url: "#"
+            - cell "23" [ref=e236]:
+              - link "23" [ref=e237] [cursor=pointer]:
+                - /url: "#"
+            - cell "24" [ref=e238]:
+              - link "24" [ref=e239] [cursor=pointer]:
+                - /url: "#"
+          - row "25 26 27 28 29 30 31" [ref=e240]:
+            - cell "25" [ref=e241]:
+              - link "25" [ref=e242] [cursor=pointer]:
+                - /url: "#"
+            - cell "26" [ref=e243]:
+              - link "26" [ref=e244] [cursor=pointer]:
+                - /url: "#"
+            - cell "27" [ref=e245]:
+              - link "27" [ref=e246] [cursor=pointer]:
+                - /url: "#"
+            - cell "28" [ref=e247]:
+              - link "28" [ref=e248] [cursor=pointer]:
+                - /url: "#"
+            - cell "29" [ref=e249]:
+              - link "29" [ref=e250] [cursor=pointer]:
+                - /url: "#"
+            - cell "30" [ref=e251]:
+              - link "30" [ref=e252] [cursor=pointer]:
+                - /url: "#"
+            - cell "31" [ref=e253]:
+              - link "31" [ref=e254] [cursor=pointer]:
+                - /url: "#"
+    - generic [ref=e255]:
+      - generic [ref=e256]:
+        - generic "Next" [ref=e257]:
+          - generic [ref=e258]: Next
+        - generic [ref=e259]: February 2026
+      - table [ref=e260]:
+        - rowgroup [ref=e261]:
+          - row "Su Mo Tu We Th Fr Sa" [ref=e262]:
+            - columnheader "Su" [ref=e263]
+            - columnheader "Mo" [ref=e264]
+            - columnheader "Tu" [ref=e265]
+            - columnheader "We" [ref=e266]
+            - columnheader "Th" [ref=e267]
+            - columnheader "Fr" [ref=e268]
+            - columnheader "Sa" [ref=e269]
+        - rowgroup [ref=e270]:
+          - row "1 2 3 4 5 6 7" [ref=e271]:
+            - cell "1" [ref=e272]:
+              - link "1" [ref=e273] [cursor=pointer]:
+                - /url: "#"
+            - cell "2" [ref=e274]:
+              - link "2" [ref=e275] [cursor=pointer]:
+                - /url: "#"
+            - cell "3" [ref=e276]:
+              - link "3" [ref=e277] [cursor=pointer]:
+                - /url: "#"
+            - cell "4" [ref=e278]:
+              - link "4" [ref=e279] [cursor=pointer]:
+                - /url: "#"
+            - cell "5" [ref=e280]:
+              - link "5" [ref=e281] [cursor=pointer]:
+                - /url: "#"
+            - cell "6" [ref=e282]:
+              - link "6" [ref=e283] [cursor=pointer]:
+                - /url: "#"
+            - cell "7" [ref=e284]:
+              - link "7" [ref=e285] [cursor=pointer]:
+                - /url: "#"
+          - row "8 9 10 11 12 13 14" [ref=e286]:
+            - cell "8" [ref=e287]:
+              - link "8" [ref=e288] [cursor=pointer]:
+                - /url: "#"
+            - cell "9" [ref=e289]:
+              - link "9" [ref=e290] [cursor=pointer]:
+                - /url: "#"
+            - cell "10" [ref=e291]:
+              - link "10" [ref=e292] [cursor=pointer]:
+                - /url: "#"
+            - cell "11" [ref=e293]:
+              - link "11" [ref=e294] [cursor=pointer]:
+                - /url: "#"
+            - cell "12" [ref=e295]:
+              - link "12" [ref=e296] [cursor=pointer]:
+                - /url: "#"
+            - cell "13" [ref=e297]:
+              - link "13" [ref=e298] [cursor=pointer]:
+                - /url: "#"
+            - cell "14" [ref=e299]:
+              - link "14" [ref=e300] [cursor=pointer]:
+                - /url: "#"
+          - row "15 16 17 18 19 20 21" [ref=e301]:
+            - cell "15" [ref=e302]:
+              - link "15" [ref=e303] [cursor=pointer]:
+                - /url: "#"
+            - cell "16" [ref=e304]:
+              - link "16" [ref=e305] [cursor=pointer]:
+                - /url: "#"
+            - cell "17" [ref=e306]:
+              - link "17" [ref=e307] [cursor=pointer]:
+                - /url: "#"
+            - cell "18" [ref=e308]:
+              - link "18" [ref=e309] [cursor=pointer]:
+                - /url: "#"
+            - cell "19" [ref=e310]:
+              - link "19" [ref=e311] [cursor=pointer]:
+                - /url: "#"
+            - cell "20" [ref=e312]:
+              - link "20" [ref=e313] [cursor=pointer]:
+                - /url: "#"
+            - cell "21" [ref=e314]:
+              - link "21" [ref=e315] [cursor=pointer]:
+                - /url: "#"
+          - row "22 23 24 25 26 27 28" [ref=e316]:
+            - cell "22" [ref=e317]:
+              - link "22" [ref=e318] [cursor=pointer]:
+                - /url: "#"
+            - cell "23" [ref=e319]:
+              - link "23" [ref=e320] [cursor=pointer]:
+                - /url: "#"
+            - cell "24" [ref=e321]:
+              - link "24" [ref=e322] [cursor=pointer]:
+                - /url: "#"
+            - cell "25" [ref=e323]:
+              - link "25" [ref=e324] [cursor=pointer]:
+                - /url: "#"
+            - cell "26" [ref=e325]:
+              - link "26" [ref=e326] [cursor=pointer]:
+                - /url: "#"
+            - cell "27" [ref=e327]:
+              - link "27" [ref=e328] [cursor=pointer]:
+                - /url: "#"
+            - cell "28" [ref=e329]:
+              - link "28" [ref=e330] [cursor=pointer]:
+                - /url: "#"
+          - row [ref=e331]:
+            - cell [ref=e332]
+            - cell [ref=e333]
+            - cell [ref=e334]
+            - cell [ref=e335]
+            - cell [ref=e336]
+            - cell [ref=e337]
+            - cell [ref=e338]
+```
