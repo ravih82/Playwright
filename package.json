@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "Regression" : "npx playwright test --grep @Web"
+    "Regression": "npx playwright test --grep @Web"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "allure-playwright": "^3.4.3"
   },
   "dependencies": {
+    "@cucumber/cucumber": "^12.5.0",
     "exceljs": "^4.4.0"
   }
 }
