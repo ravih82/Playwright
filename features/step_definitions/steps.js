@@ -4,7 +4,7 @@ const { chromium } = require('playwright');
 
 
 Given('Login to E-commerce application with {string} and {string}',{timeout: 100*1000}, async function (username, password) {
-    const browser = await chromium.launch({ headless:false });
+    const browser = await chromium.launch({ headless:true });
     const context = await browser.newContext();
     this.page = await context.newPage();
     await this.page.goto("https://rahulshettyacademy.com/client");

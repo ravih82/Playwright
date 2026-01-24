@@ -1,0 +1,63 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": ":e-commerce-app-validation;placing-the-order-in-the-e-commerce-app",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Placing the Order in the E-commerce app",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Login to E-commerce application with \"ravikumar18246@gmail.com\" and \"Welcome*12\"",
+            "match": {
+              "location": "features\\step_definitions\\steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6492087899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Add \"ZARA COAT 3\" to cart",
+            "match": {
+              "location": "features\\step_definitions\\steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3377328100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "Verify \"Thankyou for the order.\" is displayed in the page",
+            "match": {
+              "location": "features\\step_definitions\\steps.js:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 374547699
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": ":e-commerce-app-validation",
+    "line": 1,
+    "keyword": "Feature",
+    "name": ":E-commerce app validation",
+    "tags": [],
+    "uri": "features\\E-commerce.feature"
+  }
+]

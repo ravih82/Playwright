@@ -2,37 +2,66 @@ import { test, expect } from '@playwright/test';
 
 test('MSI Process Form', async ({ page }) => {
 
-  test.setTimeout(60000);
-  // Login
-  await page.goto('https://e1-poc-sandbox.a99d04.metricstream.com/metricstream/auth/signin.jsp');
-  await page.getByRole('textbox', { name: 'Username' }).fill('ORM_Program_Manager');
-  await page.getByRole('textbox', { name: 'Password' }).fill('welcome*12');
-  await page.getByRole('button', { name: 'Sign In' }).click();
+    test.setTimeout(60000); // increased timeout for stability
 
-  // Navigate to form
-  await page.getByRole('link', { name: 'Libraries' }).click();
-  await page.getByRole('button', { name: 'Forms' }).click();
-  await page.getByRole('link', { name: 'Open Form Process' }).click();
+    // Dynamic data
+    const assignmentTitle = 'Process Sanity-pwFramework';
+    const OwnerOrg = 'ACME Corp';
+    const Owner = 'ERM Admin';
+    const Username = 'ORM_Program_Manager';
+    const Password = 'welcome*12';
+    const DescriptionText = 'Description entered';
+    const businessCriticality = 'High';
 
-  // Fill form details
-  const nameField = page.getByRole('textbox', { name: 'Name' });
-  await nameField.fill('Process-Jan18');
-  await expect(nameField).toHaveValue('Process-Jan18');
+    // Login
+    await page.goto('https://e1-poc-sandbox.a99d04.metricstream.com/metricstream/auth/signin.jsp');
+    await page.getByRole('textbox', { name: 'Username' }).fill(Username);
+    await page.getByRole('textbox', { name: 'Password' }).fill(Password);
+    await page.getByRole('button', { name: 'Sign In' }).click();
 
-  // Select owner organization
-  await page.getByRole('button', { name: /Owner Organizations/ }).click();
-  await page.getByRole('treeitem', { name: 'ACME Corp' }).click();
-  await page.getByRole('button', { name: 'Add' }).click();
+    // Navigate to form
+    await page.getByRole('link', { name: 'Libraries' }).click();
+    await page.getByRole('button', { name: 'Forms' }).click();
+    await page.getByRole('link', { name: 'Open Form Process' }).click();
 
-  // Select user
-  await page.locator('b.external-icon.icn.icn-user-search').click();
-  const userCheckbox = page.getByRole('checkbox', { name: /ERM Admin/ });
-  await userCheckbox.waitFor({ state: 'visible' });
-  await userCheckbox.check();
-  await page.getByRole('button', { name: 'Done' }).click();
+    // Fill form details
+    const nameField = page.getByRole('textbox', { name: 'Name' });
+    await nameField.fill(assignmentTitle);
+    await expect(nameField).toHaveValue(assignmentTitle);
 
-  // Submission
-  await page.getByRole('button', { name: 'Send for Approval' }).click();
-  const submitButton = page.getByRole('button', { name: 'Submit' });
-  await submitButton.click();
+    await page.locator('#rtfDataread_DESCRIPTION').click();
+    const DescriptionFrame = page.frameLocator('#mce_0_ifr');
+    await DescriptionFrame.getByLabel('DESCRIPTION').fill(DescriptionText);
+
+    await page.getByRole('button', { name: 'Save Changes' }).click();
+
+    // Select Business Criticality
+
+    await page.getByRole('combobox', { name: /Business Criticality/i }).click();
+    const dropdown = page.locator('#select2-drop');
+    await dropdown.waitFor({ state: 'visible' });
+    // Click the option that matches the variable
+    await dropdown.locator(`li:has-text("${businessCriticality}")`).click();
+
+
+    // Select Owner Organization
+    await page.getByRole('button', { name: /Owner Organizations/ }).click();
+    await page.getByRole('treeitem', { name: OwnerOrg }).click();
+    await page.getByRole('button', { name: 'Add' }).click();
+
+    // Select User dynamically
+    await page.getByTitle('Owners, Press to Change').click();
+    const userCheckboxLocator = page.getByRole('checkbox', { name: `${Owner}, Select the row` });
+    await userCheckboxLocator.waitFor({ state: 'visible' });
+    await userCheckboxLocator.check();
+    await page.getByRole('button', { name: 'Done' }).click();
+    await page.waitForTimeout(3000);
+
+    // Submission
+    await page.getByRole('button', { name: 'Send for Approval' }).click();
+    await page.getByRole('button', { name: 'Submit' }).click();
+    await page.locator('div.users-icon:visible').hover();
+    await page.locator('a').filter({ hasText: 'Sign Out' }).last().click();
+    
+   
 });

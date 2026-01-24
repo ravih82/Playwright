@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test('@Web MSI Login', async ({ page }) => {
 
-    page.setDefaultTimeout(60000);
+    //page.setDefaultTimeout(60000);
     const UserName = "ORM_Program_Manager";
     const Password = "welcome*12"
     await page.goto("https://e1-poc-sandbox.a99d04.metricstream.com/metricstream/auth/signin.jsp");
