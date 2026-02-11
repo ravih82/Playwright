@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('@Web MSI Login', async ({ page }) => {
+test('MSI Login', async ({ page }) => {
 
     //page.setDefaultTimeout(60000);
     const UserName = "ORM_Program_Manager";

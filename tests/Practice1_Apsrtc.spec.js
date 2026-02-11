@@ -7,7 +7,7 @@ test('@Web Apsrtc_Busbooking', async ({ browser }) => {
 
     const boradingCity = "KURNOOL";
     const destinationCity = "BANGALORE";
-    const journetDate = "15/1/2026";
+    const journetDate = "09/2/2026";
 
     // Boarding city
     const fromInput = page.locator("#fromPlaceName");

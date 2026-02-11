@@ -1,11 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+
 test('MSI Risk Form', async ({ page }) => {
-
-    test.setTimeout(60000); // increased timeout for stability
-
+    test.setTimeout(60000);
     // Dynamic data
-    const assignmentTitle = 'Risk-PW JAN31-2nd time';
+    const assignmentTitle = 'Risk-PW FEB-09';
     const OwnerOrg = 'ACME Corp';
     const Owner = 'ORM Admin';
     const Username = 'ORM_Program_Manager';
@@ -42,36 +41,32 @@ test('MSI Risk Form', async ({ page }) => {
     await page.locator('.select2-result-label').filter({ hasText: Category }).click();
     await page.keyboard.press('Escape');
 
-
     // Select Owner Organization
-
-    await page.getByTitle('Owner Organizations, Press to Change  required').click();
-    await page.waitForTimeout(10000);
-    await page.locator('.filterText').fill(OwnerOrg);
-    await page.keyboard.press('Enter');
-    await page.getByRole('treeitem', { name: OwnerOrg }).check();
+    await page.getByRole('button', { name: /Owner Organizations, Press to Change required/i }).click();
+    await page.getByRole('treeitem', { name: OwnerOrg }).click();
     await page.getByRole('button', { name: 'Add' }).click();
 
-    // Select User dynamically
+
+    //Select User dynamically
     await page.getByTitle('Owners, Press to Change').click();
-    await page.getByPlaceholder('Type a name').fill(Owner);
+    await page.locator('.popupSearchbox').fill(Owner);
     await page.keyboard.press('Enter');
-    await expect(Owner).toBeVisible()
-    const userCheckboxLocator = page.getByRole('checkbox', { name: `${Owner}, Select the row` });
-    await userCheckboxLocator.waitFor({ state: 'visible' });
-    await userCheckboxLocator.check();
+    await page.waitForTimeout(5000);
+    await page.getByRole('checkbox', { name: `${Owner}, Select the row` }).click();
+    await expect(page.getByRole('checkbox', { name: `${Owner}, Select the row` })).toBeChecked();
     await page.getByRole('button', { name: 'Done' }).click();
-
-
+    await page.waitForTimeout(5000);
     // Submission
     await page.getByRole('button', { name: 'Send for Approval' }).click();
     await page.getByRole('button', { name: 'Submit' }).click();
     const successMessage = page.getByText('Form submitted successfully');
     await expect(successMessage).toBeVisible();
-    await successMessage.screenshot({ path: 'tests/screenshots/MS-Risk-Form-Submission.png' });
+    await successMessage.screenshot({ path: 'tests/screenshots/MS-Risk-Form1-Submission.png' });
 
-    /*await page.locator('div.users-icon:visible').hover();
-    await page.locator('a').filter({ hasText: 'Sign Out' }).last().click();*/
+    await page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
+    await page.locator('//li[@class=\'dropdown users-menu\']//a[@data-bypass=\'true\'][normalize-space()=\'Sign Out\']').click();
+    await page.getByRole('button', { name: 'Sign Out' }).click();
+    await page.waitForTimeout(3000);
 
 
 });

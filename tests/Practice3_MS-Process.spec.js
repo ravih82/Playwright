@@ -46,6 +46,7 @@ test('MSI Process Form', async ({ page }) => {
 
     // Select Owner Organization
     await page.getByRole('button', { name: /Owner Organizations/ }).click();
+    
     await page.getByRole('treeitem', { name: OwnerOrg }).click();
     await page.getByRole('button', { name: 'Add' }).click();
 
