@@ -1,18 +1,18 @@
 import { test, expect } from '@playwright/test';
 
 test('Rskplan Form', async ({ page }) => {
-    test.setTimeout(120000);
+    test.setTimeout(90000);
 
     // Test data
     const Username = 'ORM_Program_Manager';
     const Password = 'welcome*12';
-    const assignmentTitle = 'Rskplan-PW FEB-09';
+    const assignmentTitle = 'Rskplan-PW FEB-13';
     const OwnerOrg = 'ACME Corp';
     const Perspective = 'Operational Risk (Scoring Algorithm)';
     const PurposeScope = 'Purpose scope entered';
     const Frequency = 'Specific Date';
-    const NextReviewDate = '02/11/2026';
-    const AssessmentTitle = 'Assessment Feb10';
+    const NextReviewDate = '02/25/2026';
+    const AssessmentTitle = 'Assessment Feb13';
     const Process = 'ABFL - Policy Governance - CSB';
     const Risk = 'Strategic Risk';
     const Assessor = 'ERM Program Manager';
@@ -27,6 +27,7 @@ test('Rskplan Form', async ({ page }) => {
     await page.getByRole('link', { name: 'Risk Assessments' }).click();
     await page.getByRole('button', { name: 'Forms' }).click();
     await page.getByRole('link', { name: 'Open Form Risk Assessment Plan' }).click();
+    await page.waitForLoadState('networkidle');
 
     // Fill Title
     const nameField = page.getByRole('textbox', { name: 'Name' });

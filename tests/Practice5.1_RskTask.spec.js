@@ -5,7 +5,7 @@ test('RskTask Form', async ({ page }) => {
     // Test data
     const Username = 'ORM_Program_Manager';
     const Password = 'welcome*12';
-    const assignmentTitle = 'Rskplan-PW FEB-09';
+    const assignmentTitle = 'Rskplan-PW FEB-13';
     const Assessor = 'ERM Program Manager';
     const Approver = 'ORM Risk Manager';
     const DueDate = '05/30/2026';
@@ -20,13 +20,14 @@ test('RskTask Form', async ({ page }) => {
     await page.getByRole('link', { name: 'Risk Assessments' }).click();
     await page.getByRole('button', { name: 'Forms' }).click();
     await page.getByRole('link', { name: 'Open Form Risk Assessment Task' }).click();
+    await page.waitForLoadState('networkidle');
 
     //Fill details in the form
 
     await page.locator('b.pick.icon-format.icn.icn-list-search.searchInsideIcon').click();
     await page.locator('.popupSearchbox').fill(assignmentTitle);
     await page.keyboard.press('Enter');
-    await page.getByRole('radio', { name: `${assignmentTitle}, Select the row` }).nth(0).check();
+    await page.getByRole('radio', { name: `${assignmentTitle}, Select the row` }).check();
     await page.getByRole('button', { name: 'Done' }).click();
     await page.getByRole('checkbox', { name: 'Inherit Assessment Scope' }).check();
 
@@ -48,7 +49,6 @@ test('RskTask Form', async ({ page }) => {
     const submission = page.locator('[data-action="formSubmitSuccess"]');
     await expect(submission).toBeVisible();
     await page.screenshot({ path: 'tests/screenshots/MS-Risktask.png', fullPage: true });
-
 
 
 
