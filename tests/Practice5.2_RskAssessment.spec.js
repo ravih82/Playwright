@@ -26,8 +26,6 @@ test('RskAssessment Form', async ({ page }) => {
     await page.waitForLoadState('networkidle');
     await page.getByRole('link', { name: Risk }).click();
     await page.waitForTimeout(5000);
-   
-
     await page.locator('.grid-dropdown.editable.gridCell-has-constraints').nth(0).click();
     await page.locator('#select2-drop').filter(FinancialRating).click();
     await page.locator('.grid-dropdown.editable.gridCell-has-constraints').nth(1).click();

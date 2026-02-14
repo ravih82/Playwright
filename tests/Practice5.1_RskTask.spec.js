@@ -23,7 +23,6 @@ test('RskTask Form', async ({ page }) => {
     await page.waitForLoadState('networkidle');
 
     //Fill details in the form
-
     await page.locator('b.pick.icon-format.icn.icn-list-search.searchInsideIcon').click();
     await page.locator('.popupSearchbox').fill(assignmentTitle);
     await page.keyboard.press('Enter');
