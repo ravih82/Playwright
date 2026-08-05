@@ -4,7 +4,6 @@ Scenario: Process creation
 
 Given Login to MSI application with "ORM_Program_Manager" and "welcome*12"
 When open the Process form
-Then Fill Process with title "Process-cucumberFramework-FEB09" and other details
+Then Fill Process with title "Process-cucumberFramework-Aug5th" and other details
 When Submit the form
-
 

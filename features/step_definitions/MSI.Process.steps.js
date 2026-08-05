@@ -62,7 +62,7 @@ When('Submit the form', { timeout: 20 * 1000 }, async () => {
     // Submission
     await this.page.getByRole('button', { name: 'Send for Approval' }).click();
     await this.page.getByRole('button', { name: 'Submit' }).click();
-    await this.page.waitForTimeout(5000);
+    await this.page.waitForTimeout(8000);
 
     //Logout
     await this.page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
