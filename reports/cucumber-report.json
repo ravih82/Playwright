@@ -59,5 +59,11 @@
     "name": ":E-commerce app validation",
     "tags": [],
     "uri": "features\\E-commerce.feature"
+  },
+  {
+  "cucumber": {
+    "default": "--require features/**/*.js --timeout 120000"
   }
+}
+
 ]

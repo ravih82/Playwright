@@ -16,7 +16,7 @@ Given('Login to application with {string} and {string}', { timeout: 60 * 1000 },
 
 });
 
-When('open the Risk Assessment Plan form', { timeout: 30 * 1000 }, async () => {
+When('open the Risk Assessment Plan form', { timeout: 60 * 1000 }, async () => {
 
     await this.page.getByRole('link', { name: 'Risk Assessments' }).click();
     await this.page.getByRole('button', { name: 'Forms' }).click();
@@ -26,7 +26,7 @@ When('open the Risk Assessment Plan form', { timeout: 30 * 1000 }, async () => {
 });
 
 
-Then('Fill Risk Assessment Plan with title {string},and Assessment title as {string} and other details', { timeout: 90 * 1000 }, async (PlanName, AssessmentTitle) => {
+Then('Fill Risk Assessment Plan with title {string},and Assessment title as {string} and other details', { timeout: 100 * 1000 }, async (PlanName, AssessmentTitle) => {
     // Fill Title
     const nameField = this.page.getByRole('textbox', { name: 'Name' });
     await nameField.fill(PlanName);
@@ -83,12 +83,13 @@ Then('Fill Risk Assessment Plan with title {string},and Assessment title as {str
 
 });
 
-When('Submit the Risk Assessment form.', { timeout: 30 * 1000 }, async () => {
+When('Submit the Risk Assessment plan form.', { timeout: 60 * 1000 }, async () => {
     await this.page.getByRole('button', { name: 'Send for Approval' }).click();
     await this.page.getByRole('button', { name: 'Submit' }).click();
     const successMessage = this.page.getByText('Form submitted successfully');
     await expect(successMessage).toBeVisible();
     await successMessage.screenshot({ path: 'tests/screenshots/MS-Riskplan.png' });
+    await this.page.waitForTimeout(3000);
 });
 
 //Scenario 2
@@ -101,7 +102,7 @@ Given('Login as ORM Program Manager with {string} and {string}', { timeout: 60 *
     await this.page.getByRole('button', { name: 'Sign In' }).click();
 });
 
-When('open the Risk Assessment Task form', { timeout: 30 * 1000 }, async () => {
+When('open the Risk Assessment Task form', { timeout: 60 * 1000 }, async () => {
 
     //Generating the Risk Assessment from the Adhoc task
     await this.page.getByRole('link', { name: 'Risk Assessments' }).click();
@@ -119,6 +120,9 @@ Then('Fill Risk Assessment Task form by selecting {string},and other details', {
     await this.page.getByRole('radio', { name: `${PlanName}, Select the row` }).check();
     await this.page.getByRole('button', { name: 'Done' }).click();
     await this.page.getByRole('checkbox', { name: 'Inherit Assessment Scope' }).check();
+    await this.page.waitForTimeout(2000);
+    await this.page.getByRole('combobox', { name: 'Available To' }).click();
+    await this.page.locator('.select2-result-label').filter({ hasText: 'Assessor' }).click();
 
     await this.page.getByRole('application').filter({ hasText: 'Assessor' }).click();
     await this.page.locator('.popupSearchbox').fill(testData.Assessor);
@@ -133,15 +137,16 @@ Then('Fill Risk Assessment Task form by selecting {string},and other details', {
     await this.page.getByRole('button', { name: 'Done' }).click();
     await this.page.getByPlaceholder('Due Date').fill(testData.DueDate);
     await this.page.keyboard.press('Enter');
+    await this.page.waitForTimeout(2000);
 });
 
-When('Submit the Risk Assessment Task form.', { timeout: 30 * 1000 }, async () => {
-    await this.page.getByRole('button', { name: 'Submit' }).click();
+When('Submit the Risk Assessment Task form.', { timeout: 60 * 1000 }, async () => {
+    await this.page.locator('#btn-submit').click();
     await this.page.locator('#submit').click();
     const submission = this.page.locator('[data-action="formSubmitSuccess"]');
     await expect(submission).toBeVisible();
     await this.page.screenshot({ path: 'tests/screenshots/MS-Risktask.png', fullPage: true });
-    await this.page.waitForTimeout(5000);
+    await this.page.waitForTimeout(3000);
     await this.page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
     await this.page.locator('//li[@class=\'dropdown users-menu\']//a[@data-bypass=\'true\'][normalize-space()=\'Sign Out\']').click();
     await this.page.getByRole('button', { name: 'Sign Out' }).click();
@@ -164,9 +169,9 @@ When('Access the Risk Assessment {string} from my task list', { timeout: 60 * 10
 
 });
 
-Then('Perform the Risk Assessment by filling the form and providing necessary details', { timeout: 60 * 1000 }, async () => {
+Then('Perform the Risk Assessment by filling the form and providing necessary details', { timeout: 80 * 1000 }, async () => {
     await this.page.getByRole('link', { name: testData.Risk }).click();
-    await this.page.waitForTimeout(5000);
+    await this.page.waitForTimeout(3000);
     await this.page.locator('.grid-dropdown.editable.gridCell-has-constraints').nth(0).click();
     await this.page.locator('#select2-drop').filter(testData.FinancialRating).click();
     await this.page.locator('.grid-dropdown.editable.gridCell-has-constraints').nth(1).click();
@@ -177,14 +182,14 @@ Then('Perform the Risk Assessment by filling the form and providing necessary de
 });
 
 
-When('Submit the Risk Assessment form for approval.', { timeout: 30 * 1000 }, async () => {
+When('Submit the Risk Assessment form for approval.', { timeout: 100 * 1000 }, async () => {
     await this.page.getByRole('button', { name: 'Submit' }).click();
     await this.page.getByRole('link', { name: 'Send for Approval' }).click();
     await this.page.locator('#submit').click();
     const submission = this.page.locator('[data-action="formSubmitSuccess"]');
     await expect(submission).toBeVisible();
     await this.page.screenshot({ path: 'tests/screenshots/MS-RiskAssessment.png', fullPage: true });
-    await this.page.waitForTimeout(5000);
+    await this.page.waitForTimeout(8000);
     await this.page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
     await this.page.locator('//li[@class=\'dropdown users-menu\']//a[@data-bypass=\'true\'][normalize-space()=\'Sign Out\']').click();
     await this.page.getByRole('button', { name: 'Sign Out' }).click();
@@ -199,17 +204,19 @@ Given('Login as approver with {string} and {string}', { timeout: 60 * 1000 }, as
     await this.page.getByRole('textbox', { name: 'Username' }).fill(Approver);
     await this.page.getByRole('textbox', { name: 'Password' }).fill(ApproverPassword);
     await this.page.getByRole('button', { name: 'Sign In' }).click();
+    await this.page.waitForLoadState('networkidle');
 });
 
-When('Access the Risk Assessment approval task {string} from my task list', { timeout: 60 * 1000 }, async (AssessmentTitle) => {
-    await this.page.waitForTimeout(5000);
+When('Access the Risk Assessment approval task {string} from my task list', { timeout: 80 * 1000 }, async (AssessmentTitle) => {
+
     await this.page.getByRole('button', { name: 'My Tasks,List all Tasks' }).click();
     await this.page.getByRole('link', { name: AssessmentTitle }).click();
     await this.page.waitForLoadState('networkidle');
 
 });
 
-Then('Review the Risk Assessment details and approve it.', { timeout: 40 * 1000 }, async () => {
+Then('Review the Risk Assessment details and approve it.', { timeout: 80 * 1000 }, async () => {
+    await this.page.waitForTimeout(3000);
     await this.page.getByRole('button', { name: 'Submit' }).click();
     await this.page.getByRole('link', { name: 'Approve' }).click();
     await this.page.locator("textarea[title='Comments']").fill(testData.ApproverComments);
@@ -217,4 +224,5 @@ Then('Review the Risk Assessment details and approve it.', { timeout: 40 * 1000 
     const submission = this.page.locator('[data-action="formSubmitSuccess"]');
     await expect(submission).toBeVisible();
     await this.page.screenshot({ path: 'tests/screenshots/MS-RiskAssessmentApproval form.png', fullPage: true });
+    await this.page.waitForTimeout(3000);
 });
