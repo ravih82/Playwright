@@ -121,7 +121,7 @@ test('Issue Creation', async ({ page }) => {
     await page.locator('#submit').click();
     const submission = page.locator('[data-action="formSubmitSuccess"]');
     await expect(submission).toBeVisible();
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(5000);
     await page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
     await page.locator('//li[@class=\'dropdown users-menu\']//a[@data-bypass=\'true\'][normalize-space()=\'Sign Out\']').click();
     await page.getByRole('button', { name: 'Sign Out' }).click();

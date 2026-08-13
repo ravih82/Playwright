@@ -1,12 +1,12 @@
 const URL = 'https://e1-poc-sandbox.a99d04.metricstream.com/metricstream/auth/signin.jsp';
 const Username = 'ORM_Program_Manager';
 const Password = 'welcome*12';
-const IssueTitle = 'ISM-1124';
+const IssueTitle = 'ISM-Aug7th';
 const OwnerOrg = 'ACME Corp';
 const Owner = 'ERM Business User';
 const OwnerUsername = 'ERM_Business_User';
 const IssueDescription = 'Issue description entered';
-const IssueDueDate = '04/30/2026';
+const IssueDueDate = '08/30/2026';
 const ActionApprovalBy = 'No Approver';
 const Rating = 'High';
 const IssueSourcetype = 'Audits';
@@ -22,9 +22,9 @@ const FinalApproverUsername = 'ERM_Risk_Analyst';
 const IssueResolutionSummary = 'Issue resolution details entered';
 const IssueClosureComments = 'Issue closure comments entered';
 //Action details
-const ActionTitle = 'ISM Action-1124';
+const ActionTitle = 'ISM Action-Aug7th';
 const ActionDescription = 'Action description entered';
-const ActionStartDate = '04/20/2026';
+const ActionStartDate = '08/10/2026';
 const ActionOwner = 'Application Admin';
 const ActionOwnerUsername = 'CSM_Application_Admin';
 const Actionworkdone = 'Work done details entered';

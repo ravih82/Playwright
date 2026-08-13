@@ -96,13 +96,13 @@ Then('Fill the Issue details and action details', { timeout: 60 * 1000 },  async
     await this.page.keyboard.press('Enter');
 });
 
-When('Submit the Issue form.',{ timeout: 60 * 1000 }, async () => {
+When('Submit the Issue form.',{ timeout: 90 * 1000 }, async () => {
     await this.page.locator('#btn-submit').click();
     await this.page.getByRole('link', { name: 'Send for Approval' }).click();
     await this.page.locator('#submit').click();
     //const submission = this.page.locator('[data-action="formSubmitSuccess"]');
     //await expect(submission).toBeVisible();
-    await this.page.waitForTimeout(6000);
+    await this.page.waitForTimeout(35000);
     await this.page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
     await this.page.locator('//li[@class=\'dropdown users-menu\']//a[@data-bypass=\'true\'][normalize-space()=\'Sign Out\']').click();
     await this.page.getByRole('button', { name: 'Sign Out' }).click();
@@ -110,7 +110,7 @@ When('Submit the Issue form.',{ timeout: 60 * 1000 }, async () => {
 
 //Scenario 2
 
-Given('Login as Initial approver', { timeout: 60 * 1000 },async () => {
+Given('Login as Initial approver', { timeout: 90 * 1000 },async () => {
     await this.page.getByRole('textbox', { name: 'Username' }).fill(testData.InitialApproverUsername);
     await this.page.getByRole('textbox', { name: 'Password' }).fill(testData.Password);
     await this.page.getByRole('button', { name: 'Sign In' }).click();
@@ -118,7 +118,7 @@ Given('Login as Initial approver', { timeout: 60 * 1000 },async () => {
 });
 
 
-When('Access the Issue form at initial approver stage from my task list',{ timeout: 60 * 1000 }, async () => {
+When('Access the Issue form at initial approver stage from my task list',{ timeout: 90 * 1000 }, async () => {
     await this.page.getByRole('button', { name: 'My Tasks,List all Tasks' }).click();
     await this.page.waitForLoadState('networkidle');
     await this.page.getByRole('link', { name: testData.IssueTitle }).nth(0).click();
@@ -126,12 +126,12 @@ When('Access the Issue form at initial approver stage from my task list',{ timeo
 });
 
 
-Then('Review the Issue details and approve it.', { timeout: 60 * 1000 }, async () => {
+Then('Review the Issue details and approve it.', { timeout: 90 * 1000 }, async () => {
     await this.page.waitForTimeout(5000);
     await this.page.locator('#btn-submit').click();
     await this.page.getByRole('link', { name: 'Approve Issue' }).click();
     await this.page.locator('#submit').click();
-    await this.page.waitForTimeout(6000);
+    await this.page.waitForTimeout(10000);
     await this.page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
     await this.page.locator('//li[@class=\'dropdown users-menu\']//a[@data-bypass=\'true\'][normalize-space()=\'Sign Out\']').click();
     await this.page.getByRole('button', { name: 'Sign Out' }).click();
@@ -140,7 +140,7 @@ Then('Review the Issue details and approve it.', { timeout: 60 * 1000 }, async (
 
 // Scenario 3
 
-Given('Login as Issue owner at manage stage', { timeout: 60 * 1000 }, async () => {
+Given('Login as Issue owner at manage stage', { timeout: 90 * 1000 }, async () => {
     await this.page.getByRole('textbox', { name: 'Username' }).fill(testData.OwnerUsername);
     await this.page.getByRole('textbox', { name: 'Password' }).fill(testData.Password);
     await this.page.getByRole('button', { name: 'Sign In' }).click();
@@ -148,19 +148,19 @@ Given('Login as Issue owner at manage stage', { timeout: 60 * 1000 }, async () =
 
 });
 
-When('Access the Manage Issue task from my task list', { timeout: 60 * 1000 }, async () => {
+When('Access the Manage Issue task from my task list', { timeout: 90 * 1000 }, async () => {
     await this.page.getByRole('button', { name: 'My Tasks,List all Tasks' }).click();
     await this.page.waitForLoadState('networkidle');
     await this.page.getByRole('link', { name: testData.IssueTitle }).nth(0).click();
     await this.page.waitForTimeout(5000);
 });
 
-Then('submit for approval.', { timeout: 60 * 1000 }, async () => {
+Then('submit for approval.', { timeout: 90 * 1000 }, async () => {
     await this.page.waitForTimeout(3000);
     await this.page.locator('#btn-submit').click();
     await this.page.getByRole('link', { name: 'Send for Approval' }).click();
     await this.page.locator('#submit').click();
-    await this.page.waitForTimeout(6000);
+    await this.page.waitForTimeout(10000);
     await this.page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
     await this.page.locator('//li[@class=\'dropdown users-menu\']//a[@data-bypass=\'true\'][normalize-space()=\'Sign Out\']').click();
     await this.page.getByRole('button', { name: 'Sign Out' }).click();
@@ -170,26 +170,26 @@ Then('submit for approval.', { timeout: 60 * 1000 }, async () => {
 
 // Scenario 4
 
-Given('Login as Action plan approver', { timeout: 60 * 1000 }, async () => {
+Given('Login as Action plan approver', { timeout: 90 * 1000 }, async () => {
     await this.page.getByRole('textbox', { name: 'Username' }).fill(testData.ActionPlanApproverUsername);
     await this.page.getByRole('textbox', { name: 'Password' }).fill(testData.Password);
     await this.page.getByRole('button', { name: 'Sign In' }).click();
     await this.page.waitForLoadState('networkidle');
 });
 
-When('Access the Issue form at Action plan approver stage from my task list',{ timeout: 60 * 1000 },async () => {
+When('Access the Issue form at Action plan approver stage from my task list',{ timeout: 90 * 1000 },async () => {
     await this.page.getByRole('button', { name: 'My Tasks,List all Tasks' }).click();
     await this.page.waitForLoadState('networkidle');
     await this.page.getByRole('link', { name: testData.IssueTitle }).nth(0).click();
     await this.page.waitForLoadState('networkidle');
 });
 
-Then('Review the Issue details, Initiate the actions.', { timeout: 60 * 1000 }, async () => {
+Then('Review the Issue details, Initiate the actions.', { timeout: 90 * 1000 }, async () => {
     await this.page.waitForTimeout(7000);
     await this.page.locator('#btn-submit').click();
     await this.page.getByRole('link', { name: 'Approve and Initiate Actions' }).click();
     await this.page.locator('#submit').click();
-    await this.page.waitForTimeout(6000);
+    await this.page.waitForTimeout(10000);
     await this.page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
     await this.page.locator('//li[@class=\'dropdown users-menu\']//a[@data-bypass=\'true\'][normalize-space()=\'Sign Out\']').click();
     await this.page.getByRole('button', { name: 'Sign Out' }).click();
@@ -199,7 +199,7 @@ Then('Review the Issue details, Initiate the actions.', { timeout: 60 * 1000 }, 
 
 // Scenario 5
 
-Given('Login as Action owner', { timeout: 60 * 1000 }, async () => {
+Given('Login as Action owner', { timeout: 90 * 1000 }, async () => {
 
     await this.page.getByRole('textbox', { name: 'Username' }).fill(testData.ActionOwnerUsername);
     await this.page.getByRole('textbox', { name: 'Password' }).fill(testData.Password);
@@ -207,14 +207,14 @@ Given('Login as Action owner', { timeout: 60 * 1000 }, async () => {
     await this.page.waitForLoadState('networkidle');
 });
 
-When('Access the action task from my task list', { timeout: 60 * 1000 }, async () => {
+When('Access the action task from my task list.', { timeout: 90 * 1000 }, async () => {
     await this.page.getByRole('button', { name: 'My Tasks,List all Tasks' }).click();
     await this.page.waitForTimeout(3000);
     await this.page.getByRole('link', { name: testData.ActionTitle }).nth(0).click();
     await this.page.waitForLoadState('load');
 });
 
-Then('Review the action details, fill the action details and complete the action.', { timeout: 60 * 1000 }, async () => {
+Then('Review the action details, fill the action details and complete the action.', { timeout: 90 * 1000 }, async () => {
     await this.page.waitForTimeout(5000);
     await this.page.getByRole('textbox', { name: 'Work Done' }).click();
     const workdoneFrame = this.page.frameLocator('#mce_0_ifr');
@@ -228,7 +228,7 @@ Then('Review the action details, fill the action details and complete the action
     await this.page.getByRole('link', { name: 'Close Action' }).click();
     await this.page.getByRole('textbox', { name: 'Comments' }).fill(testData.ActionComments);
     await this.page.locator('#submit').click();
-    await this.page.waitForTimeout(6000);
+    await this.page.waitForTimeout(10000);
     //const submission5 = this.page.locator('[data-action="formSubmitSuccess"]');
     //await expect(submission5).toBeVisible();
     await this.page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
@@ -238,14 +238,14 @@ Then('Review the action details, fill the action details and complete the action
 
 
 //Scenario 6
-Given('Login as Issue owner at monitor stage', { timeout: 60 * 1000 }, async () => {
+Given('Login as Issue owner at monitor stage', { timeout: 90 * 1000 }, async () => {
     await this.page.getByRole('textbox', { name: 'Username' }).fill(testData.OwnerUsername);
     await this.page.getByRole('textbox', { name: 'Password' }).fill(testData.Password);
     await this.page.getByRole('button', { name: 'Sign In' }).click();
     await this.page.waitForLoadState('networkidle');
 });
 
-When('Access the Issue form', { timeout: 60 * 1000 }, async () => {
+When('Access the Issue form', { timeout: 90 * 1000 }, async () => {
     await this.page.getByRole('button', { name: 'My Tasks,List all Tasks' }).click();
     await this.page.waitForLoadState('networkidle');
     await this.page.getByRole('link', { name: testData.IssueTitle }).nth(0).click();
@@ -253,7 +253,7 @@ When('Access the Issue form', { timeout: 60 * 1000 }, async () => {
 });
 
 
-Then('submit the Issue form to final approval.', { timeout: 60 * 1000 }, async () => {
+Then('submit the Issue form to final approval.', { timeout: 90 * 1000 }, async () => {
     await this.page.waitForTimeout(5000);
     await this.page.getByRole('textbox', { name: 'Issue Resolution Summary' }).click();
     const IssueresolutionFrame = this.page.frameLocator('#mce_0_ifr');
@@ -263,7 +263,7 @@ Then('submit the Issue form to final approval.', { timeout: 60 * 1000 }, async (
     await this.page.getByRole('link', { name: 'Close Issue' }).click();
     await this.page.getByRole('textbox', { name: 'Comments' }).fill(testData.IssueClosureComments);
     await this.page.locator('#submit').click();
-    await this.page.waitForTimeout(6000);
+    await this.page.waitForTimeout(10000);
     //const submission6 = this.page.locator('[data-action="formSubmitSuccess"]');
     //await expect(submission6).toBeVisible();
     await this.page.getByLabel('User Profile,Show my Profile details and options', { exact: true }).hover();
@@ -274,27 +274,27 @@ Then('submit the Issue form to final approval.', { timeout: 60 * 1000 }, async (
 
 //Scenario 7
 
-Given('Login as Final approver', { timeout: 60 * 1000 }, async () => {
+Given('Login as Final approver', { timeout: 90 * 1000 }, async () => {
     await this.page.getByRole('textbox', { name: 'Username' }).fill(testData.FinalApproverUsername);
     await this.page.getByRole('textbox', { name: 'Password' }).fill(testData.Password);
     await this.page.getByRole('button', { name: 'Sign In' }).click();
     await this.page.waitForLoadState('networkidle');
 });
 
-When('Access the Issue form at final approver stage', { timeout: 60 * 1000 }, async () => {
+When('Access the Issue form at final approver stage', { timeout: 90 * 1000 }, async () => {
     await this.page.getByRole('button', { name: 'My Tasks,List all Tasks' }).click();
     await this.page.waitForLoadState('load');
     await this.page.getByRole('link', { name: testData.IssueTitle }).nth(0).click();
     await this.page.waitForLoadState('networkidle');
 });
 
-Then('close the Issue form.', { timeout: 60 * 1000 }, async () => {
+Then('close the Issue form..', { timeout: 90 * 1000 }, async () => {
 
     await this.page.waitForTimeout(6000);
     await this.page.locator('#btn-submit').click();
     await this.page.getByRole('link', { name: 'Approve and Close Issue' }).click();
     await this.page.locator('#submit').click();
-    await this.page.waitForTimeout(6000);
+    await this.page.waitForTimeout(10000);
 
     //const submission7 = this.page.locator('[data-action="formSubmitSuccess"]');
     //await expect(submission7).toBeVisible();

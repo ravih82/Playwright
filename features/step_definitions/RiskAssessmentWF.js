@@ -86,6 +86,8 @@ Then('Fill Risk Assessment Plan with title {string},and Assessment title as {str
 When('Submit the Risk Assessment plan form.', { timeout: 60 * 1000 }, async () => {
     await this.page.getByRole('button', { name: 'Send for Approval' }).click();
     await this.page.getByRole('button', { name: 'Submit' }).click();
+    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForTimeout(35000);
     const successMessage = this.page.getByText('Form submitted successfully');
     await expect(successMessage).toBeVisible();
     await successMessage.screenshot({ path: 'tests/screenshots/MS-Riskplan.png' });
